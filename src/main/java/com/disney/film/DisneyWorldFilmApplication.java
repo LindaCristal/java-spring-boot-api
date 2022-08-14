@@ -8,6 +8,6 @@ public class DisneyWorldFilmApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DisneyWorldFilmApplication.class, args);
+		/*System.out.println("Hello, World!");*/
 	}
-
 }
