@@ -20,6 +20,6 @@ public class UserController {
 
     @PostMapping()
     public UserModel saveUser(@RequestBody UserModel user){
-        return userService.saveUser(user);
+        return this.userService.saveUser(user);
     }
 }
