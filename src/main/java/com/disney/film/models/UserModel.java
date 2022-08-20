@@ -1,4 +1,5 @@
 package com.disney.film.models;
+
 import javax.persistence.*;
 
 @Entity
@@ -44,4 +45,13 @@ public class UserModel {
         this.priority = priority;
     }
 
+    public UserModel() {
+    }
+
+    public UserModel(Long id, String name, String email, Integer priority) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.priority = priority;
+    }
 }
