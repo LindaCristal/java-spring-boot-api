@@ -1,17 +1,25 @@
 package com.disney.film.controllers;
 
 import com.disney.film.models.CharacterModel;
+import com.disney.film.models.UserModel;
 import com.disney.film.models.dto.CharacterDTO;
 import com.disney.film.services.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/characters")
 public class CharacterController {
-
     @Autowired
     CharacterService characterService;
+
+    @GetMapping()
+    public ArrayList<CharacterModel> getCharacters() {
+        return characterService.getCharacters();
+    }
+
 
     @GetMapping(path = "/{name}")
     public CharacterDTO getCharacterByName(@PathVariable("name") String name) {

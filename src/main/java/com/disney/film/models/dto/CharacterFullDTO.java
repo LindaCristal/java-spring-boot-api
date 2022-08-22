@@ -1,30 +1,12 @@
-package com.disney.film.models;
+package com.disney.film.models.dto;
 
-import javax.persistence.*;
 import java.sql.Blob;
 import java.util.ArrayList;
 
-@Entity
-@Table(name = "character")
-public class CharacterModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
+public class CharacterFullDTO {
     private Long id;
     private Blob image;
     private String name;
-    private Integer age;
-    private String story;
-
-    public Long getIdFilm() {
-        return idFilm;
-    }
-
-    public void setIdFilm(Long idFilm) {
-        this.idFilm = idFilm;
-    }
-
-    private Long idFilm;
 
     public Long getId() {
         return id;
@@ -65,4 +47,16 @@ public class CharacterModel {
     public void setStory(String story) {
         this.story = story;
     }
+
+    public ArrayList<Long> getIdFilm() {
+        return idFilm;
+    }
+
+    public void setIdFilm(ArrayList<Long> idFilm) {
+        this.idFilm = idFilm;
+    }
+
+    private Integer age;
+    private String story;
+    private ArrayList<Long> idFilm;
 }
