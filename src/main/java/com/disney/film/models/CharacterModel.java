@@ -2,6 +2,7 @@ package com.disney.film.models;
 
 import javax.persistence.*;
 import java.sql.Blob;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "character")
@@ -14,7 +15,7 @@ public class CharacterModel {
     private String name;
     private Integer age;
     private String story;
-    private Long idFilm;
+    private ArrayList<Long> idFilm;
 
     public Long getId() {
         return id;
@@ -56,11 +57,11 @@ public class CharacterModel {
         this.story = story;
     }
 
-    public Long getIdFilm() {
+    public ArrayList<Long> getIdFilm() {
         return idFilm;
     }
 
-    public void setIdFilm(Long idFilm) {
+    public void setIdFilm(ArrayList<Long> idFilm) {
         this.idFilm = idFilm;
     }
 }
