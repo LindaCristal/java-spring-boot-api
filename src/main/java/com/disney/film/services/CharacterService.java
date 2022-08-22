@@ -2,6 +2,7 @@ package com.disney.film.services;
 
 import com.disney.film.models.CharacterModel;
 import com.disney.film.models.FilmModel;
+import com.disney.film.models.dto.CharacterDTO;
 import com.disney.film.repositories.CharacterRepository;
 import com.disney.film.repositories.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class CharacterService {
         }
     }
 
-    public Optional<CharacterModel> getFullCharacter(Long id) {
+    public Optional<CharacterModel> getCharacterDetail(Long id) {
 
         Optional<CharacterModel> character = characterRepository.findById(id);
         ArrayList<Long> filmList = new ArrayList<Long>();
@@ -61,19 +62,27 @@ public class CharacterService {
         return (ArrayList<CharacterModel>) characterRepository.findAll();
     }
 
-    public Optional<CharacterModel> getCharacterDetail(Long id) {
-        return characterRepository.findById(id);
+    public CharacterDTO getCharacterByName(String name) {
+        CharacterModel characterModel = characterRepository.findByName(name);
+        CharacterDTO dto = new CharacterDTO();
+        dto.setName(characterModel.getName());
+        dto.setImage(characterModel.getImage());
+        return dto;
     }
 
-    public CharacterModel getCharacterByName(String name) {
-        return characterRepository.findByName(name);
+    public CharacterDTO getCharacterByAge(Integer age) {
+        CharacterModel characterModel = characterRepository.findByAge(age);
+        CharacterDTO dto = new CharacterDTO();
+        dto.setName(characterModel.getName());
+        dto.setImage(characterModel.getImage());
+        return dto;
     }
 
-    public CharacterModel getCharacterByAge(Integer age) {
-        return characterRepository.findByAge(age);
-    }
-
-    public CharacterModel getCharacterByIdFilm(Long idFilm) {
-        return characterRepository.findByFilm(idFilm);
+    public CharacterDTO getCharacterByIdFilm(Long idFilm) {
+        CharacterModel characterModel = characterRepository.findByFilm(idFilm);
+        CharacterDTO dto = new CharacterDTO();
+        dto.setName(characterModel.getName());
+        dto.setImage(characterModel.getImage());
+        return dto;
     }
 }
