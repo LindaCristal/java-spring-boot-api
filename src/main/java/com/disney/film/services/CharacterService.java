@@ -56,7 +56,24 @@ public class CharacterService {
         }
 
     }
-    public ArrayList<CharacterModel> getCharacters(){
+
+    public ArrayList<CharacterModel> getCharacters() {
         return (ArrayList<CharacterModel>) characterRepository.findAll();
+    }
+
+    public Optional<CharacterModel> getCharacterDetail(Long id) {
+        return characterRepository.findById(id);
+    }
+
+    public CharacterModel getCharacterByName(String name) {
+        return characterRepository.findByName(name);
+    }
+
+    public CharacterModel getCharacterByAge(Integer age) {
+        return characterRepository.findByAge(age);
+    }
+
+    public CharacterModel getCharacterByIdFilm(Long idFilm) {
+        return characterRepository.findByFilm(idFilm);
     }
 }
