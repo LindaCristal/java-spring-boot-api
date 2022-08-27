@@ -2,10 +2,8 @@ package com.disney.film.models;
 
 import javax.persistence.*;
 import java.sql.Blob;
-import java.util.ArrayList;
-
 @Entity
-@Table(name = "character")
+@Table(name = "`character`")
 public class CharacterModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,16 +13,6 @@ public class CharacterModel {
     private String name;
     private Integer age;
     private String story;
-
-    public Long getIdFilm() {
-        return idFilm;
-    }
-
-    public void setIdFilm(Long idFilm) {
-        this.idFilm = idFilm;
-    }
-
-    private Long idFilm;
 
     public Long getId() {
         return id;

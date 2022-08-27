@@ -74,10 +74,11 @@ public class CharacterService {
     }
 
     public CharacterDTO getCharacterByIdFilm(Long idFilm) {
-        CharacterModel characterModel = characterRepository.findByIdFilm(idFilm);
+        Optional<FilmModel> filmModel = filmRepository.findById(idFilm);
+        Optional<CharacterModel> characterModel = characterRepository.findById(filmModel.get().getIdCharacter());
         CharacterDTO dto = new CharacterDTO();
-        dto.setName(characterModel.getName());
-        dto.setImage(characterModel.getImage());
+        dto.setName(characterModel.get().getName());
+        dto.setImage(characterModel.get().getImage());
         return dto;
     }
 }

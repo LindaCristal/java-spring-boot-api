@@ -7,7 +7,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "film")
 public class FilmModel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)

@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface CharacterRepository extends CrudRepository<CharacterModel, Long> {
     public CharacterModel findByName(String name);
     public CharacterModel findByAge(Integer age);
-
-    public CharacterModel findByIdFilm(Long idFilm);
 }
